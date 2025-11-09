@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        version: [14, 16, 18]  # Node versions for the matrix build
+        version: [14, 16, 18]   # <-- at least 3 variants!
 
     steps:
       - name: Checkout repository
@@ -29,7 +29,7 @@ jobs:
       - name: Generate build artifact
         run: |
           echo "Build output for Node.js version ${{ matrix.version }}" > build_output_v${{ matrix.version }}.txt
-          echo "Build completed successfully for Node ${{ matrix.version }}"
+          echo "Completed build for Node ${{ matrix.version }}"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
